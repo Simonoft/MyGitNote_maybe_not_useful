@@ -1,0 +1,30 @@
+error: invalid path 'drivers/gpu/drm/nouveau/nvkm/subdev/i2c/aux.c'
+fatal: unable to checkout working tree
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+------
+Try 1:
+Happened when the path is too long?
+try the following command:
+	git config core.protectNTFS false
+
+------
+Try 2:
+first do garbage collection:
+	git gc
+then reset:
+	git reset
+	git reset --hard HEAD
+
+result:	
+	same error massage, unable to stat just-written files.
+------
+Try 3:
+Clean all files what I last time downloaded.
+Do the following command first:
+	git config core.protectNTFS false
+then git clone:
+	git clone git://git.kernel.org/pub/scm/virt/kvm/kvm.git
+same error happened again.
